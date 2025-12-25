@@ -1,3 +1,7 @@
+/*
+!static_export/
+!static_export/**
+!.gitignore
 node_modules
 dist
 .DS_Store
