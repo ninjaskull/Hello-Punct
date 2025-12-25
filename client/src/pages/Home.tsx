@@ -102,9 +102,9 @@ export default function Home() {
       </section>
 
       {/* STATS SECTION */}
-      <section className="py-16 bg-black text-white border-b border-primary/20">
+      <section className="py-12 bg-black text-white border-b border-primary/20">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <motion.div {...fadeIn} className="text-center">
               <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">15K+</div>
               <p className="text-gray-400 font-medium">Happy Customers</p>
@@ -126,15 +126,15 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">How It Works</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-gray-600">Simple, fast, and hassle-free. Get professional service in just 4 easy steps.</p>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3">How It Works</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
+            <p className="text-gray-600 text-sm md:text-base">Simple, fast, and hassle-free. Get professional service in just 4 easy steps.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0">
             {[
               { step: 1, title: "Call or Book Online", desc: "Contact us via phone or our booking platform" },
               { step: 2, title: "Get Instant Quote", desc: "Receive transparent pricing within minutes" },
@@ -147,13 +147,13 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="relative flex flex-col items-center text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-primary text-black flex items-center justify-center font-display font-bold text-2xl mb-6 relative z-10">
+                <div className="w-14 h-14 rounded-full bg-primary text-black flex items-center justify-center font-display font-bold text-xl mb-4 relative z-10">
                   {item.step}
                 </div>
-                <h3 className="font-bold text-lg mb-2 font-display">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <h3 className="font-bold text-base md:text-lg mb-1 font-display">{item.title}</h3>
+                <p className="text-gray-600 text-xs md:text-sm">{item.desc}</p>
                 {i < 3 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-1 bg-gradient-to-r from-primary to-transparent" />
+                  <div className="hidden md:block absolute top-7 left-[60%] w-[80%] h-1 bg-gradient-to-r from-primary to-transparent" />
                 )}
               </motion.div>
             ))}
@@ -162,15 +162,15 @@ export default function Home() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section id="services" className="py-24 bg-gray-50">
+      <section id="services" className="py-16 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">Our Core Services</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-gray-600">Professional vehicle care delivered right to your doorstep. We handle everything from flat tyres to full engine diagnostics.</p>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3">Our Core Services</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
+            <p className="text-gray-600 text-sm md:text-base">Professional vehicle care delivered right to your doorstep. We handle everything from flat tyres to full engine diagnostics.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {[
               { icon: Disc, title: "Door-Step Puncture", items: ["Car & Bike Support", "Tubeless & Tube Repair", "Emergency Response"] },
               { icon: Wrench, title: "Tyre & Tube Change", items: ["Premium Brands", "Professional Fitting", "Wheel Balancing"] },
@@ -182,13 +182,13 @@ export default function Home() {
                   key={i}
                   {...fadeIn} 
                   transition={{ delay: i * 0.1 }}
-                  className="group bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-primary/40 transition-all duration-300 hover-lift"
+                  className="group bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-primary/40 transition-all duration-300 hover-lift"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-black to-gray-800 group-hover:from-primary group-hover:to-yellow-500 transition-all duration-300 flex items-center justify-center mb-6 rounded-xl">
-                    <IconComponent className="w-7 h-7 text-primary group-hover:text-black transition-colors" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-black to-gray-800 group-hover:from-primary group-hover:to-yellow-500 transition-all duration-300 flex items-center justify-center mb-4 md:mb-6 rounded-xl">
+                    <IconComponent className="w-6 h-6 text-primary group-hover:text-black transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 font-display">{service.title}</h3>
-                  <ul className="space-y-3 mb-8">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 font-display">{service.title}</h3>
+                  <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                     {service.items.map((item, j) => (
                       <li key={j} className="flex items-center gap-2 text-gray-600 text-sm">
                         <CheckCircle2 className="w-4 h-4 text-primary" /> {item}
@@ -203,21 +203,21 @@ export default function Home() {
       </section>
 
       {/* BIKE SERVICING DETAIL SECTION */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-black text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
              <img src={bikeServiceImage} alt="Bike servicing background" className="w-full h-full object-cover" />
         </div>
         
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <motion.div {...fadeIn}>
-              <div className="inline-block bg-primary text-black font-bold text-xs px-3 py-1 mb-6 uppercase tracking-wider">Premium Care</div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Comprehensive <br/><span className="text-primary">Bike Health Check</span></h2>
-              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+              <div className="inline-block bg-primary text-black font-bold text-xs px-3 py-1 mb-4 md:mb-6 uppercase tracking-wider">Premium Care</div>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 md:mb-6">Comprehensive <br/><span className="text-primary">Bike Health Check</span></h2>
+              <p className="text-gray-400 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
                 We don't just fix problems; we prevent them. Our 25-point inspection covers every vital component of your two-wheeler to ensure a smooth, safe ride.
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 md:gap-y-4 gap-x-6 md:gap-x-8">
                 {[
                   "Full Bike Inspection & Diagnosis",
                   "Engine Oil Change (Branded)",
@@ -228,14 +228,14 @@ export default function Home() {
                   "Battery Health Check",
                   "Chain Lubrication & Adjustment"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    <span className="font-medium text-sm md:text-base">{item}</span>
+                  <div key={i} className="flex items-center gap-2 md:gap-3">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0" />
+                    <span className="font-medium text-xs md:text-base">{item}</span>
                   </div>
                 ))}
               </div>
               
-              <Button className="mt-10 bg-primary text-black hover:bg-white hover:text-black font-bold rounded-none h-12 px-8 uppercase tracking-wide" data-testid="button-book-inspection">
+              <Button className="mt-8 md:mt-10 bg-primary text-black hover:bg-white hover:text-black font-bold rounded-lg h-11 md:h-12 px-6 md:px-8 uppercase tracking-wide text-sm md:text-base w-full sm:w-auto" data-testid="button-book-inspection">
                 Book Inspection
               </Button>
             </motion.div>
@@ -254,15 +254,15 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">Why Choose Hello Puncture?</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-gray-600">What sets us apart from the competition</p>
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3 md:mb-4">Why Choose Hello Puncture?</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
+            <p className="text-gray-600 text-sm md:text-base">What sets us apart from the competition</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {[
               { icon: Zap, title: "Lightning Fast", desc: "30-minute average response time across the city" },
               { icon: TrendingUp, title: "Certified Technicians", desc: "All mechanics are trained and government verified" },
@@ -277,7 +277,7 @@ export default function Home() {
                   key={i}
                   {...fadeIn}
                   transition={{ delay: i * 0.08 }}
-                  className="group p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-primary/40 hover:shadow-2xl transition-all duration-300 hover-lift"
+                  className="group p-6 md:p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-primary/40 hover:shadow-2xl transition-all duration-300 hover-lift"
                 >
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 group-hover:from-primary group-hover:to-yellow-500 group-hover:text-white flex items-center justify-center mb-4 transition-all duration-300">
                     <IconComponent className="w-6 h-6 text-primary group-hover:text-black transition-colors" />
@@ -292,15 +292,15 @@ export default function Home() {
       </section>
 
       {/* PRICING SECTION */}
-      <section id="pricing" className="py-24 bg-gray-50">
+      <section id="pricing" className="py-16 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">Transparent Pricing</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-            <p className="text-gray-600">Choose the package that fits your needs. No hidden charges, just honest service.</p>
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3 md:mb-4">Transparent Pricing</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
+            <p className="text-gray-600 text-sm md:text-base">Choose the package that fits your needs. No hidden charges, just honest service.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[
               { name: "Silver", price: 499, items: ["25 Points Checkup", "Bosch Engine Oil", "10-Point Cleaning"] },
               { name: "Golden", price: 699, items: ["25 Points Checkup", "Premium Branded Oil", "10-Point Cleaning & Polish", "Chain Lubrication"], featured: true },
@@ -312,7 +312,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className={`flex flex-col relative group ${pkg.featured ? 'md:-translate-y-4' : ''}`}
               >
-                <div className={`${pkg.featured ? 'bg-gradient-to-br from-white to-gray-50 border-2 border-primary shadow-2xl rounded-2xl' : 'bg-white border border-gray-200 rounded-2xl hover:shadow-xl'} p-8 flex flex-col flex-1 transition-all duration-300`}>
+                <div className={`${pkg.featured ? 'bg-gradient-to-br from-white to-gray-50 border-2 border-primary shadow-2xl rounded-2xl' : 'bg-white border border-gray-200 rounded-2xl hover:shadow-xl'} p-6 md:p-8 flex flex-col flex-1 transition-all duration-300`}>
                   {pkg.featured && (
                     <div className="absolute top-0 right-0 bg-primary text-black text-xs font-bold px-3 py-1 uppercase tracking-widest">
                       Best Value
@@ -347,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* SERVICE AREAS SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeIn}>
@@ -386,7 +386,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS SECTION */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="container px-4 md:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">What Customers Say</h2>
@@ -426,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* FAQ SECTION */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container px-4 md:px-6 max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-black mb-4">Frequently Asked Questions</h2>
@@ -471,7 +471,7 @@ export default function Home() {
       </section>
 
       {/* TRUST & VALUE - ICON GRID */}
-      <section className="py-20 bg-black text-white border-t border-white/10">
+      <section className="py-12 md:py-20 bg-black text-white border-t border-white/10">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <motion.div {...fadeIn} className="p-4 flex flex-col items-center">
@@ -499,7 +499,7 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-24 bg-primary relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <img src={mechanicImage} alt="Background" className="w-full h-full object-cover" />
         </div>
