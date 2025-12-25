@@ -1,2 +1,2 @@
-[[pages_build_output_dir]]
-directory = "dist/public"
+[site]
+bucket = "dist/public"
