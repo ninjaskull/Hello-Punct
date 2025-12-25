@@ -52,7 +52,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-20 px-4 md:px-6 text-center md:text-left">
+        <div className="container relative z-20 px-4 md:px-6 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function Home() {
               Car & Bike puncture repair, tyre change, and complete bike servicing done at your place. Fast. Reliable. Professional.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 font-bold h-14 px-8 text-base rounded-lg uppercase tracking-wide transition-all duration-300 hover:-translate-y-1" data-testid="button-book-hero">
                 Book Now
               </Button>
@@ -83,7 +83,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="mt-16 flex flex-wrap gap-8 justify-center md:justify-start opacity-80">
+            <div className="mt-16 flex flex-wrap gap-8 justify-center opacity-80">
               <div className="flex items-center gap-3">
                 <Clock className="text-primary w-6 h-6" />
                 <span className="text-white font-medium text-sm">30 Min Arrival</span>
