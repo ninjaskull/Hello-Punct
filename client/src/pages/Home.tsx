@@ -52,29 +52,29 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-20 px-4 md:px-6 text-center">
+        <div className="container relative z-20 px-4 md:px-6 text-center md:text-left">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-4xl mx-auto md:mx-0"
           >
-            <div className="inline-block glass px-4 py-1.5 mb-6 rounded-full">
+            <div className="inline-block glass px-4 py-1.5 mb-6 md:mb-8 rounded-full">
               <span className="text-primary font-bold text-xs tracking-widest uppercase">One Call Service | Your Problems, Our Solutions</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-display font-bold text-white leading-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6">
               Door-Step Puncture <br/>
-              <span className="gradient-text text-6xl md:text-8xl">
+              <span className="gradient-text text-5xl md:text-7xl">
                 & Bike Servicing
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-lg text-gray-300 mb-10 max-w-2xl md:max-w-xl leading-relaxed">
               Car & Bike puncture repair, tyre change, and complete bike servicing done at your place. Fast. Reliable. Professional.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" className="bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 font-bold h-14 px-8 text-base rounded-lg uppercase tracking-wide transition-all duration-300 hover:-translate-y-1" data-testid="button-book-hero">
                 Book Now
               </Button>
@@ -83,7 +83,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="mt-16 flex flex-wrap gap-8 justify-center opacity-80">
+            <div className="mt-16 flex flex-wrap gap-8 justify-center md:justify-start opacity-80">
               <div className="flex items-center gap-3">
                 <Clock className="text-primary w-6 h-6" />
                 <span className="text-white font-medium text-sm">30 Min Arrival</span>

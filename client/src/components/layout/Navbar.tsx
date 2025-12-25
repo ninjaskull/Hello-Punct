@@ -25,7 +25,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" data-testid="link-home">
-          <Logo variant="light" className="h-12 w-auto object-contain" />
+          <Logo variant="light" className="h-16 md:h-20 w-auto object-contain" />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
