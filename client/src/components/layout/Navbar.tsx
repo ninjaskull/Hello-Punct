@@ -56,7 +56,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <Button 
               variant="ghost"
               className="hidden lg:inline-flex text-sm font-medium text-gray-700 hover:text-black gap-2 h-9"
@@ -71,6 +71,14 @@ export default function Navbar() {
             >
               Book Now
               <ArrowRight className="w-4 h-4" />
+            </Button>
+
+            {/* Mobile CTA Button */}
+            <Button
+              className="md:hidden bg-primary text-black hover:bg-primary/90 font-semibold rounded-lg text-xs h-9 px-3 transition-all"
+              data-testid="button-mobile-book-quick"
+            >
+              Book
             </Button>
 
             {/* Mobile Menu Button */}
