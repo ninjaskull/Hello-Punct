@@ -1,0 +1,140 @@
+PROJECT: Enterprise-Level Website Design for "Hello Puncture"
+
+OBJECTIVE:
+Design a modern, enterprise-grade service website for "Hello Puncture", a professional doorstep vehicle service brand. The website must convey speed, reliability, technical expertise, and professionalism. The final output should look scalable, trustworthy, and suitable for a city-wide or multi-city service operation.
+
+BRAND IDENTITY:
+Brand Name: Hello Puncture
+Logo: Use white version of the logo as the primary logo
+Tagline: One Call Service | Your Problems, Our Solutions
+
+COLOR PALETTE (STRICT):
+Primary Color: Yellow (main highlight color)
+Secondary Color: Black (authority, structure, backgrounds)
+Neutral: White (logo, text clarity, spacing)
+Avoid gradients, pastel tones, neon colors, or soft shadows.
+
+Color Usage Rules:
+- Yellow for CTAs, icons, pricing highlights, section dividers
+- Black for headers, footer, hero background, strong contrast sections
+- White for typography, spacing, and logo dominance
+- Maintain high contrast for enterprise-level readability
+
+DESIGN STYLE:
+- Enterprise-grade, clean, structured layout
+- Strong grid system and alignment
+- Bold typography with clear hierarchy
+- Minimal, purposeful animations only
+- Mobile-first and fully responsive
+- Premium service brand appearance (not a local flyer style)
+
+HEADER (ENTERPRISE STYLE):
+- Sticky header
+- Left: White logo
+- Right: Navigation menu
+  Home
+  Services
+  Bike Servicing Packages
+  About
+  Contact
+- Primary CTA (Yellow button): "Book Door-Step Service"
+- Secondary CTA (Outlined Yellow): "Call Now"
+
+HERO SECTION:
+- Black background
+- Main headline (White, bold):
+  "Door-Step Puncture & Bike Servicing — Fast. Reliable. Professional."
+- Subheading (Light grey):
+  "Car & Bike puncture repair, tyre change, and complete bike servicing done at your place."
+- CTA buttons:
+  Primary: Yellow filled — "Book Now"
+  Secondary: White outlined — "View Services"
+- Subtle automotive or tyre service visuals (low opacity)
+
+SERVICES SECTION:
+Use clean service cards with yellow icons.
+
+1. Door-Step Puncture Service
+   - Car & Bike
+   - Quick, efficient, and on-location repair
+   - Emergency-ready service
+
+2. Tyre Change & Tube Replacement
+   - High-quality tyres & tubes
+   - Long-lasting performance
+   - Professional installation
+
+3. Bike Servicing
+   - Comprehensive servicing
+   - Branded consumables
+   - Trained technicians
+
+BIKE SERVICING DETAILS:
+Checklist-style layout:
+- Full Bike Inspection & Diagnosis
+- Engine Oil Change (Branded Oils Available)
+- Brake & Clutch Adjustment
+- Filter, Plug & Carburetor Cleaning
+- Battery Health Check & Maintenance
+
+PRICING PACKAGES SECTION:
+Use enterprise-style pricing cards with clear hierarchy.
+
+Silver Package — ₹499
+- 25 Points Checkup
+- Bosch Engine Oil
+- 10-Point Cleaning & Polishing
+
+Golden Package — ₹699 (Highlighted)
+- 25 Points Checkup
+- Branded Oil
+- 10-Point Cleaning & Polishing
+
+Platinum Package — ₹999
+- 25 Points Checkup
+- Semi-Synthetic Oil
+- 12-Point Cleaning & Polishing
+
+Rules:
+- Golden package visually emphasized with yellow highlight
+- CTA on each card: "Book Now"
+- Clean layout, no clutter, no discounts
+
+TRUST & VALUE SECTION:
+Black background with white text and yellow icons:
+- One Call Service
+- Professional Technicians
+- Fast Door-Step Support
+- Quality Parts & Oils
+
+CALL TO ACTION SECTION:
+Large yellow section:
+Headline:
+"Need Immediate Puncture or Bike Service?"
+CTA Button:
+"Call Now" / "Book Door-Step Service"
+
+FOOTER (ENTERPRISE FOOTER):
+- Black background
+- White logo
+- Short brand description
+- Quick navigation links
+- Contact information
+- Service areas
+- Copyright notice
+
+TYPOGRAPHY:
+- Headings: Bold, modern sans-serif
+- Body text: Clean, readable sans-serif
+- No decorative or script fonts
+- Strong typographic hierarchy
+
+TECHNICAL REQUIREMENTS:
+- Fast loading performance
+- SEO-friendly structure
+- Optimized images
+- Accessible color contrast
+- Mobile-first responsive design
+
+FINAL NOTE:
+The website must feel like a scalable, professional service brand, suitable for expansion and enterprise use, fully aligned with the Hello Puncture logo and the Yellow-Black-White branding system.
