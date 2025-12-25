@@ -89,7 +89,7 @@ export default function Navbar() {
             </Button>
 
             <Link href="/" data-testid="link-home" className="flex-shrink-0 absolute left-1/2 transform -translate-x-1/2">
-              <Logo variant="dark" className="h-8 w-auto object-contain" />
+              <Logo variant="dark" className="h-11 w-auto object-contain" />
             </Link>
 
             <Button
