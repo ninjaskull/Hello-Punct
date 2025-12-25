@@ -41,14 +41,14 @@ export default function Home() {
       <Navbar />
       
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/70 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80 z-10" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40" />
           <img 
             src={heroImage} 
             alt="Mechanic repairing tyre" 
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-40"
           />
         </div>
 
@@ -59,13 +59,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <div className="inline-block bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-block glass px-4 py-1.5 mb-6 rounded-full">
               <span className="text-primary font-bold text-xs tracking-widest uppercase">One Call Service | Your Problems, Our Solutions</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6">
+            <h1 className="text-6xl md:text-8xl font-display font-bold text-white leading-tight mb-6">
               Door-Step Puncture <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-200">
+              <span className="gradient-text text-6xl md:text-8xl">
                 & Bike Servicing
               </span>
             </h1>
@@ -75,10 +75,10 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" className="bg-primary text-black hover:bg-primary/90 font-bold h-14 px-8 text-base rounded-none uppercase tracking-wide" data-testid="button-book-hero">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 font-bold h-14 px-8 text-base rounded-lg uppercase tracking-wide transition-all duration-300 hover:-translate-y-1" data-testid="button-book-hero">
                 Book Now
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black font-bold h-14 px-8 text-base rounded-none uppercase tracking-wide" data-testid="button-view-services-hero">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 hover:shadow-lg font-bold h-14 px-8 text-base rounded-lg uppercase tracking-wide transition-all duration-300" data-testid="button-view-services-hero">
                 View Services
               </Button>
             </div>
@@ -182,9 +182,9 @@ export default function Home() {
                   key={i}
                   {...fadeIn} 
                   transition={{ delay: i * 0.1 }}
-                  className="group bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300"
+                  className="group bg-white p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-primary/40 transition-all duration-300 hover-lift"
                 >
-                  <div className="w-14 h-14 bg-black group-hover:bg-primary transition-colors flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-black to-gray-800 group-hover:from-primary group-hover:to-yellow-500 transition-all duration-300 flex items-center justify-center mb-6 rounded-xl">
                     <IconComponent className="w-7 h-7 text-primary group-hover:text-black transition-colors" />
                   </div>
                   <h3 className="text-xl font-bold mb-4 font-display">{service.title}</h3>
@@ -241,12 +241,12 @@ export default function Home() {
             </motion.div>
             
             <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="relative">
-              <div className="aspect-square border-2 border-primary/30 relative">
-                 <div className="absolute inset-4 bg-gray-900 overflow-hidden">
-                    <img src={bikeServiceImage} alt="Mechanic working" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+              <div className="aspect-square relative group">
+                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+                 <div className="absolute inset-0 bg-gray-900 overflow-hidden rounded-3xl border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300">
+                    <img src={bikeServiceImage} alt="Mechanic working" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                  </div>
-                 <div className="absolute -top-3 -right-3 w-12 h-12 bg-primary" />
-                 <div className="absolute -bottom-3 -left-3 w-12 h-12 border-2 border-white" />
+                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary to-yellow-500 rounded-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
           </div>
@@ -277,13 +277,13 @@ export default function Home() {
                   key={i}
                   {...fadeIn}
                   transition={{ delay: i * 0.08 }}
-                  className="group p-8 bg-gradient-to-br from-gray-50 to-white border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  className="group p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-primary/40 hover:shadow-2xl transition-all duration-300 hover-lift"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 group-hover:bg-primary group-hover:text-white flex items-center justify-center mb-4 transition-colors">
-                    <IconComponent className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 group-hover:from-primary group-hover:to-yellow-500 group-hover:text-white flex items-center justify-center mb-4 transition-all duration-300">
+                    <IconComponent className="w-6 h-6 text-primary group-hover:text-black transition-colors" />
                   </div>
                   <h3 className="text-lg font-bold mb-2 font-display">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm">{feature.desc}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
                 </motion.div>
               );
             })}
@@ -312,7 +312,7 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className={`flex flex-col relative group ${pkg.featured ? 'md:-translate-y-4' : ''}`}
               >
-                <div className={`${pkg.featured ? 'bg-white border-2 border-primary shadow-xl' : 'bg-white border border-gray-200'} p-8 flex flex-col flex-1 transition-colors`}>
+                <div className={`${pkg.featured ? 'bg-gradient-to-br from-white to-gray-50 border-2 border-primary shadow-2xl rounded-2xl' : 'bg-white border border-gray-200 rounded-2xl hover:shadow-xl'} p-8 flex flex-col flex-1 transition-all duration-300`}>
                   {pkg.featured && (
                     <div className="absolute top-0 right-0 bg-primary text-black text-xs font-bold px-3 py-1 uppercase tracking-widest">
                       Best Value
@@ -333,7 +333,7 @@ export default function Home() {
                   </ul>
                   
                   <Button 
-                    className={pkg.featured ? 'w-full bg-primary text-black hover:bg-primary/90 rounded-none font-bold uppercase tracking-wide h-12' : 'w-full border-black text-black hover:bg-black hover:text-white rounded-none font-bold uppercase tracking-wide'}
+                    className={pkg.featured ? 'w-full bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 rounded-lg font-bold uppercase tracking-wide h-12 transition-all duration-300' : 'w-full border-2 border-black text-black hover:bg-black hover:text-white rounded-lg font-bold uppercase tracking-wide transition-all duration-300'}
                     variant={pkg.featured ? 'default' : 'outline'}
                     data-testid={`button-book-${pkg.name.toLowerCase()}`}
                   >
@@ -371,7 +371,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <Button className="bg-primary text-black hover:bg-primary/90 font-bold rounded-none h-12 px-8 uppercase tracking-wide" data-testid="button-check-coverage">
+              <Button className="bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 font-bold rounded-lg h-12 px-8 uppercase tracking-wide transition-all duration-300" data-testid="button-check-coverage">
                 Check Service Area
               </Button>
             </motion.div>
@@ -404,7 +404,7 @@ export default function Home() {
                 key={i}
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300"
+                className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-primary/40 hover:shadow-2xl transition-all duration-300 hover-lift"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, j) => (
@@ -413,7 +413,7 @@ export default function Home() {
                 </div>
                 <p className="text-gray-600 mb-6 leading-relaxed italic">"{testimonial.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-yellow-500" />
                   <div>
                     <p className="font-bold text-sm">{testimonial.name}</p>
                     <p className="text-xs text-gray-500">Verified Customer</p>
@@ -447,11 +447,11 @@ export default function Home() {
                 key={i}
                 {...fadeIn}
                 transition={{ delay: i * 0.05 }}
-                className="border border-gray-200 overflow-hidden hover:border-primary/30 transition-colors"
+                className="border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all duration-300"
               >
                 <button
                   onClick={() => setExpandedFAQ(expandedFAQ === i ? null : i)}
-                  className="w-full p-6 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left"
+                  className="w-full p-6 flex items-center justify-between bg-white hover:bg-gradient-to-r hover:from-gray-50 hover:to-primary/5 transition-all duration-300 text-left"
                   data-testid={`faq-button-${i}`}
                 >
                   <h3 className="font-bold text-gray-900 pr-4">{item.q}</h3>
@@ -460,7 +460,7 @@ export default function Home() {
                   />
                 </button>
                 {expandedFAQ === i && (
-                  <div className="border-t border-gray-200 bg-gray-50 p-6">
+                  <div className="border-t border-gray-200 bg-gradient-to-br from-gray-50 to-primary/5 p-6">
                     <p className="text-gray-600 leading-relaxed">{item.a}</p>
                   </div>
                 )}
@@ -512,10 +512,10 @@ export default function Home() {
               Don't get stranded. Our mobile workshop is just one call away. Professional service, guaranteed satisfaction.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-black text-white hover:bg-black/80 font-bold h-14 px-10 text-lg rounded-none uppercase tracking-wide" data-testid="button-call-final">
+              <Button size="lg" className="bg-black text-white hover:bg-black/80 font-bold h-14 px-10 text-lg rounded-lg uppercase tracking-wide transition-all duration-300" data-testid="button-call-final">
                 <PhoneCall className="w-5 h-5 mr-3" /> Call Now
               </Button>
-              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white font-bold h-14 px-10 text-lg rounded-none uppercase tracking-wide" data-testid="button-book-final">
+              <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white font-bold h-14 px-10 text-lg rounded-lg uppercase tracking-wide transition-all duration-300" data-testid="button-book-final">
                 Book Online
               </Button>
             </div>
