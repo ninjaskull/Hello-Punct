@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import { 
   Wrench, 
   Settings, 
@@ -122,13 +123,15 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
             >
-              <Button 
-                size="lg" 
-                className="bg-black text-white hover:bg-black/90 font-bold h-12 md:h-14 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
-                data-testid="button-book-hero"
-              >
-                Book Service Now
-              </Button>
+              <Link href="/booking">
+                <Button 
+                  size="lg" 
+                  className="bg-black text-white hover:bg-black/90 font-bold h-12 md:h-14 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                  data-testid="button-book-hero"
+                >
+                  Book Service Now
+                </Button>
+              </Link>
               <Button 
                 size="lg" 
                 variant="outline" 
@@ -387,9 +390,11 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <Button className="bg-primary text-black hover:bg-primary/90 font-bold h-12 px-8 rounded-xl" data-testid="button-book-inspection">
-                Book Service
-              </Button>
+              <Link href="/booking">
+                <Button className="bg-primary text-black hover:bg-primary/90 font-bold h-12 px-8 rounded-xl" data-testid="button-book-inspection">
+                  Book Service
+                </Button>
+              </Link>
             </motion.div>
             <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="relative">
               <div className="aspect-square overflow-hidden rounded-2xl border-2 border-primary/30">
@@ -476,13 +481,15 @@ export default function Home() {
                     ))}
                   </ul>
                   
-                  <Button 
-                    className={pkg.featured ? 'w-full bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 rounded-lg font-bold uppercase tracking-wide h-12 transition-all duration-300' : 'w-full border-2 border-black text-black hover:bg-black hover:text-white rounded-lg font-bold uppercase tracking-wide transition-all duration-300'}
-                    variant={pkg.featured ? 'default' : 'outline'}
-                    data-testid={`button-book-${pkg.name.toLowerCase()}`}
-                  >
-                    Book {pkg.name}
-                  </Button>
+                  <Link href="/booking" className="block">
+                    <Button 
+                      className={pkg.featured ? 'w-full bg-gradient-to-r from-primary to-yellow-500 text-black hover:shadow-lg hover:shadow-primary/50 rounded-lg font-bold uppercase tracking-wide h-12 transition-all duration-300' : 'w-full border-2 border-black text-black hover:bg-black hover:text-white rounded-lg font-bold uppercase tracking-wide transition-all duration-300'}
+                      variant={pkg.featured ? 'default' : 'outline'}
+                      data-testid={`button-book-${pkg.name.toLowerCase()}`}
+                    >
+                      Book {pkg.name}
+                    </Button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -659,9 +666,11 @@ export default function Home() {
               <Button size="lg" className="bg-black text-white hover:bg-black/80 font-bold h-14 px-10 text-lg rounded-lg uppercase tracking-wide transition-all duration-300" data-testid="button-call-final">
                 <PhoneCall className="w-5 h-5 mr-3" /> Call Now
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white font-bold h-14 px-10 text-lg rounded-lg uppercase tracking-wide transition-all duration-300" data-testid="button-book-final">
-                Book Online
-              </Button>
+              <Link href="/booking">
+                <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white font-bold h-14 px-10 text-lg rounded-lg uppercase tracking-wide transition-all duration-300" data-testid="button-book-final">
+                  Book Online
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

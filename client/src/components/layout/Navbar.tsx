@@ -68,13 +68,15 @@ export default function Navbar() {
                 <Phone className="w-4 h-4" />
                 Call Now
               </Button>
-              <Button 
-                className="bg-black text-white hover:bg-black/90 font-semibold rounded-lg text-sm h-10 px-5 inline-flex gap-2 transition-all duration-300"
-                data-testid="button-book-service"
-              >
-                Book Now
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+              <Link href="/booking">
+                <Button 
+                  className="bg-black text-white hover:bg-black/90 font-semibold rounded-lg text-sm h-10 px-5 inline-flex gap-2 transition-all duration-300"
+                  data-testid="button-book-service"
+                >
+                  Book Now
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -98,12 +100,14 @@ export default function Navbar() {
               <Logo variant="dark" className="h-11 w-auto object-contain" />
             </Link>
 
-            <Button
-              className="bg-primary text-black hover:bg-primary/90 font-bold rounded-lg text-sm h-9 px-4 transition-all"
-              data-testid="button-mobile-book-quick"
-            >
-              Book
-            </Button>
+            <Link href="/booking">
+              <Button
+                className="bg-primary text-black hover:bg-primary/90 font-bold rounded-lg text-sm h-9 px-4 transition-all"
+                data-testid="button-mobile-book-quick"
+              >
+                Book
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
