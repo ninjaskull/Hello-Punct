@@ -4,6 +4,7 @@ import Logo from "@/components/Logo";
 import { Phone, Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,13 +28,20 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
+      <motion.nav
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled 
-            ? "top-4 left-4 right-4 bg-white/95 backdrop-blur-xl border border-white/30 shadow-2xl rounded-2xl" 
+            ? "top-4 left-4 right-4 bg-white/95 backdrop-blur-xl border border-white/30 rounded-2xl" 
             : "bg-white/80 backdrop-blur-md border-transparent"
         )}
+        animate={{
+          boxShadow: isScrolled 
+            ? "0 20px 50px rgba(0, 0, 0, 0.15)" 
+            : "0 0px 0px rgba(0, 0, 0, 0)",
+          borderRadius: isScrolled ? "16px" : "0px"
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
         <div className={cn(
           "container mx-auto px-4 md:px-6 transition-all duration-300",
@@ -46,36 +54,59 @@ export default function Navbar() {
             </Link>
 
             <div className="flex items-center gap-8 lg:gap-12">
-              {navItems.map((item) => (
-                <a
+              {navItems.map((item, idx) => (
+                <motion.a
                   key={item.testId}
                   href={item.href}
                   data-testid={item.testId}
-                  className="text-sm font-medium text-gray-700 hover:text-black transition-colors relative group"
+                  className="text-sm font-medium text-gray-700 hover:text-black relative group"
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10, delay: idx * 0.05 }}
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-                </a>
+                  <motion.span 
+                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
               ))}
             </div>
 
             <div className="flex items-center gap-3">
-              <Button 
-                variant="ghost"
-                className="hidden lg:inline-flex text-sm font-medium text-gray-700 hover:text-black gap-2 h-9"
-                data-testid="button-call-now"
-              >
-                <Phone className="w-4 h-4" />
-                Call Now
-              </Button>
-              <Link href="/booking">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button 
-                  className="bg-black text-white hover:bg-black/90 font-semibold rounded-lg text-sm h-10 px-5 inline-flex gap-2 transition-all duration-300"
-                  data-testid="button-book-service"
+                  variant="ghost"
+                  className="hidden lg:inline-flex text-sm font-medium text-gray-700 hover:text-black gap-2 h-9"
+                  data-testid="button-call-now"
                 >
-                  Book Now
-                  <ArrowRight className="w-4 h-4" />
+                  <motion.span
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Phone className="w-4 h-4" />
+                  </motion.span>
+                  Call Now
                 </Button>
+              </motion.div>
+              <Link href="/booking">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button 
+                    className="bg-black text-white hover:bg-black/90 font-semibold rounded-lg text-sm h-10 px-5 inline-flex gap-2 transition-all duration-300"
+                    data-testid="button-book-service"
+                  >
+                    Book Now
+                    <motion.span
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.span>
+                  </Button>
+                </motion.div>
               </Link>
             </div>
           </div>
@@ -110,7 +141,7 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
