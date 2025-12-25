@@ -41,7 +41,7 @@ export default function Home() {
       <Navbar />
       
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-950 to-gray-900 overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-950 to-gray-900 overflow-hidden pt-16 md:pt-20">
         {/* Decorative background elements */}
         <div className="absolute inset-0 z-0">
           {/* Premium gradient overlay */}
@@ -62,84 +62,86 @@ export default function Home() {
         {/* Premium vertical accent line */}
         <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-transparent z-20" />
 
-        <div className="container relative z-20 px-4 md:px-6 text-center md:text-left">
+        <div className="container relative z-20 px-4 md:px-6 text-center md:text-left max-w-5xl">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto md:mx-0"
+            className="w-full"
           >
             {/* Premium badge */}
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="inline-block glass px-6 py-2.5 mb-8 md:mb-10 rounded-full border border-primary/30 backdrop-blur-md"
+              className="inline-block glass px-4 py-2 md:px-6 md:py-2.5 mb-6 md:mb-10 rounded-full border border-primary/30 backdrop-blur-md"
             >
               <span className="text-primary font-bold text-xs tracking-widest uppercase flex items-center gap-2">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse" />
                 One Call Service | Your Problems, Our Solutions
               </span>
             </motion.div>
             
             {/* Premium headline with enhanced typography */}
-            <h1 className="text-5xl md:text-8xl font-display font-black text-white leading-tight mb-8 md:mb-10 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-display font-black text-white leading-tight mb-6 md:mb-10 tracking-tight">
               Door-Step <br className="md:hidden"/>
               <span className="block md:inline">Puncture</span>
               <br/>
               <span className="relative inline-block">
-                <span className="gradient-text text-5xl md:text-8xl">& Bike Servicing</span>
-                <div className="absolute -bottom-4 left-0 w-32 h-1.5 bg-primary rounded-full" />
+                <span className="gradient-text text-3xl sm:text-4xl md:text-7xl lg:text-8xl">& Bike Servicing</span>
+                <div className="absolute -bottom-2 md:-bottom-4 left-0 w-24 md:w-32 h-1 md:h-1.5 bg-primary rounded-full" />
               </span>
             </h1>
             
             {/* Enhanced subheading */}
-            <p className="text-base md:text-lg text-gray-200 mb-12 md:mb-14 max-w-2xl md:max-w-xl leading-relaxed font-light">
+            <p className="text-sm md:text-base lg:text-lg text-gray-200 mb-8 md:mb-12 max-w-2xl md:max-w-xl leading-relaxed font-light">
               Professional car and bike puncture repair, tyre changes, and complete bike servicing delivered directly to your location. Fast. Reliable. Trusted by thousands.
             </p>
             
             {/* Premium CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start mb-16 md:mb-20">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center md:justify-start mb-12 md:mb-16">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
+                className="w-full sm:w-auto"
               >
-                <Button size="lg" className="bg-gradient-to-r from-primary via-yellow-400 to-yellow-500 text-black hover:shadow-2xl hover:shadow-primary/60 font-bold h-14 px-10 text-base rounded-xl uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 border border-yellow-400/30 w-full sm:w-auto" data-testid="button-book-hero">
-                  Book Your Service
+                <Button size="lg" className="bg-gradient-to-r from-primary via-yellow-400 to-yellow-500 text-black hover:shadow-2xl hover:shadow-primary/60 font-bold h-11 sm:h-14 px-6 sm:px-10 text-xs sm:text-sm md:text-base rounded-xl uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 border border-yellow-400/30 w-full" data-testid="button-book-hero">
+                  Book Service
                 </Button>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
+                className="w-full sm:w-auto"
               >
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-2xl font-bold h-14 px-10 text-base rounded-xl uppercase tracking-wide transition-all duration-300 w-full sm:w-auto" data-testid="button-view-services-hero">
-                  Our Services
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-2xl font-bold h-11 sm:h-14 px-6 sm:px-10 text-xs sm:text-sm md:text-base rounded-xl uppercase tracking-wide transition-all duration-300 w-full" data-testid="button-view-services-hero">
+                  Services
                 </Button>
               </motion.div>
             </div>
 
             {/* Premium trust indicators */}
-            <div className="grid grid-cols-3 gap-6 md:gap-8 max-w-2xl">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="flex flex-col items-center md:items-start space-y-2">
-                <div className="flex items-center gap-2.5 text-white">
-                  <Clock className="text-primary w-5 h-5" />
-                  <span className="font-bold text-sm md:text-base">30 Min</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-2xl">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="flex flex-col items-center md:items-start space-y-1.5 md:space-y-2">
+                <div className="flex items-center gap-2 text-white">
+                  <Clock className="text-primary w-4 md:w-5 h-4 md:h-5" />
+                  <span className="font-bold text-xs md:text-sm lg:text-base">30 Min</span>
                 </div>
                 <span className="text-xs text-gray-400">Fast Arrival</span>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-col items-center md:items-start space-y-2">
-                <div className="flex items-center gap-2.5 text-white">
-                  <ShieldCheck className="text-primary w-5 h-5" />
-                  <span className="font-bold text-sm md:text-base">100%</span>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-col items-center md:items-start space-y-1.5 md:space-y-2">
+                <div className="flex items-center gap-2 text-white">
+                  <ShieldCheck className="text-primary w-4 md:w-5 h-4 md:h-5" />
+                  <span className="font-bold text-xs md:text-sm lg:text-base">100%</span>
                 </div>
                 <span className="text-xs text-gray-400">Guaranteed</span>
               </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="flex flex-col items-center md:items-start space-y-2">
-                <div className="flex items-center gap-2.5 text-white">
-                  <Settings className="text-primary w-5 h-5" />
-                  <span className="font-bold text-sm md:text-base">Expert</span>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="flex flex-col items-center md:items-start space-y-1.5 md:space-y-2">
+                <div className="flex items-center gap-2 text-white">
+                  <Settings className="text-primary w-4 md:w-5 h-4 md:h-5" />
+                  <span className="font-bold text-xs md:text-sm lg:text-base">Expert</span>
                 </div>
                 <span className="text-xs text-gray-400">Certified Techs</span>
               </motion.div>
