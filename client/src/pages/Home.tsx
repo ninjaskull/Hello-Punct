@@ -189,38 +189,142 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS - MODERN MINIMAL */}
-      <section className="py-20 md:py-28 bg-gray-50">
+      {/* HOW IT WORKS - DETAILED ANIMATED */}
+      <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 to-white">
         <div className="container px-4 md:px-6">
-          <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-5xl font-display font-black mb-4">Simple & Straightforward</h2>
-            <p className="text-base md:text-lg text-gray-600">Get professional service in just 4 steps</p>
+          <motion.div 
+            {...fadeIn}
+            className="max-w-3xl mx-auto text-center mb-20"
+          >
+            <h2 className="text-3xl md:text-5xl font-display font-black mb-6">How It Works - Simple 4 Steps</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              We've made it incredibly easy to get professional vehicle care. Here's exactly what happens from the moment you book until we're done.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 max-w-5xl mx-auto items-center">
+            {/* Steps List */}
+            <div className="space-y-6">
+              {[
+                { 
+                  step: 1, 
+                  title: "Book in 30 Seconds", 
+                  desc: "Call us or use our app. Tell us your location and problem. That's it!",
+                  icon: PhoneCall,
+                  details: "No complex forms, no long waits. Quick and straightforward."
+                },
+                { 
+                  step: 2, 
+                  title: "Get Instant Quote", 
+                  desc: "Receive transparent pricing within 2 minutes. No surprises.",
+                  icon: Gauge,
+                  details: "Our AI calculates exact prices based on your vehicle type and issue."
+                },
+                { 
+                  step: 3, 
+                  title: "Technician Arrives", 
+                  desc: "Expert arrives at your location within 30 minutes on average.",
+                  icon: Wrench,
+                  details: "GPS tracked, professional, certified, and fully equipped."
+                },
+                { 
+                  step: 4, 
+                  title: "Service & You're Done", 
+                  desc: "Professional service with flexible payment options.",
+                  icon: CheckCircle2,
+                  details: "Pay online or cash. 100% warranty on all work."
+                }
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.15 }}
+                    className="group relative"
+                  >
+                    <div className="flex gap-4">
+                      <div className="relative flex flex-col items-center">
+                        <motion.div 
+                          className="w-14 h-14 rounded-full bg-primary text-black flex items-center justify-center font-display font-bold text-xl z-10 relative"
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          {item.step}
+                        </motion.div>
+                        {i < 3 && (
+                          <motion.div 
+                            className="w-1 h-12 bg-gradient-to-b from-primary to-gray-300 mt-2"
+                            initial={{ scaleY: 0 }}
+                            whileInView={{ scaleY: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: i * 0.15 + 0.2 }}
+                          />
+                        )}
+                      </div>
+                      <div className="pt-2 pb-8 flex-1">
+                        <h3 className="font-bold text-lg mb-1 font-display">{item.title}</h3>
+                        <p className="text-gray-600 text-sm mb-2">{item.desc}</p>
+                        <p className="text-xs text-gray-500 italic">{item.details}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Visual Illustration */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative hidden lg:flex items-center justify-center"
+            >
+              <div className="relative w-full aspect-square max-w-sm">
+                {/* Animated background circles */}
+                <motion.div 
+                  className="absolute inset-0 rounded-full bg-primary/5 border-2 border-primary/20"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                />
+                <motion.div 
+                  className="absolute inset-8 rounded-full bg-primary/10 border border-primary/30"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                />
+                
+                {/* Center content */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <motion.div 
+                    className="text-center z-10"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                  >
+                    <Sparkles className="w-16 h-16 text-primary mx-auto mb-3" />
+                    <p className="font-bold text-lg text-black">Fast & Easy</p>
+                    <p className="text-sm text-gray-600">4 Simple Steps</p>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {[
-              { step: 1, title: "Book Online", desc: "Call or use our app", icon: PhoneCall },
-              { step: 2, title: "Get Quote", desc: "Transparent pricing", icon: Gauge },
-              { step: 3, title: "Technician Arrives", desc: "At your location", icon: Wrench },
-              { step: 4, title: "Service Done", desc: "Pay & relax", icon: CheckCircle2 }
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={i}
-                  {...fadeIn}
-                  transition={{ delay: i * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 rounded-xl bg-primary text-black flex items-center justify-center mb-4 mx-auto font-display font-bold text-2xl">
-                    {item.step}
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 font-display">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
+          {/* Timeline on mobile */}
+          <motion.div 
+            {...fadeIn}
+            className="lg:hidden mt-12 flex justify-between items-center gap-2 text-xs text-gray-600"
+          >
+            <span className="text-center">Book</span>
+            <span className="flex-1 h-1 bg-primary/30" />
+            <span className="text-center">Quote</span>
+            <span className="flex-1 h-1 bg-primary/30" />
+            <span className="text-center">Arrive</span>
+            <span className="flex-1 h-1 bg-primary/30" />
+            <span className="text-center">Done</span>
+          </motion.div>
         </div>
       </section>
 
