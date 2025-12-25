@@ -1,2 +1,2 @@
-[site]
-bucket = "dist/public"
+name = "hellopuncture"
+pages_build_output_dir = "dist/public"
