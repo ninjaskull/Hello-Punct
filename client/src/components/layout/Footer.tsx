@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import Logo from "@/components/Logo";
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
@@ -8,22 +9,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="space-y-6">
-            <img 
-              src="/attached_assets/1_HPC_38in_X_34in_One_way_Vision-removebg-preview-fotor-20250_1766664609446.webp" 
-              alt="Hello Puncture" 
-              className="h-16 w-auto object-contain brightness-0 invert" 
-            />
+            <Logo variant="light" className="h-16 w-auto object-contain" />
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Your trusted partner for door-step vehicle repair and maintenance. Fast, reliable, and professional service at your convenience.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" data-testid="social-facebook">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" data-testid="social-instagram">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-colors" data-testid="social-twitter">
                 <Twitter className="w-4 h-4" />
               </a>
             </div>
@@ -33,11 +30,11 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-bold text-lg mb-6 text-primary">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link href="/"><a className="text-gray-400 hover:text-white transition-colors text-sm">Home</a></Link></li>
-              <li><Link href="#services"><a className="text-gray-400 hover:text-white transition-colors text-sm">Our Services</a></Link></li>
-              <li><Link href="#pricing"><a className="text-gray-400 hover:text-white transition-colors text-sm">Servicing Packages</a></Link></li>
-              <li><Link href="#about"><a className="text-gray-400 hover:text-white transition-colors text-sm">About Us</a></Link></li>
-              <li><Link href="#contact"><a className="text-gray-400 hover:text-white transition-colors text-sm">Contact Support</a></Link></li>
+              <li><Link href="/" data-testid="footer-link-home" className="text-gray-400 hover:text-white transition-colors text-sm">Home</Link></li>
+              <li><a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="footer-link-services">Our Services</a></li>
+              <li><a href="#pricing" className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="footer-link-packages">Servicing Packages</a></li>
+              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="footer-link-about">About Us</a></li>
+              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm cursor-pointer" data-testid="footer-link-contact">Contact Support</a></li>
             </ul>
           </div>
 
@@ -83,10 +80,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">© 2024 Hello Puncture. All rights reserved.</p>
+          <p className="text-gray-500 text-sm" data-testid="footer-copyright">© 2024 Hello Puncture. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="text-gray-500 hover:text-white text-xs">Privacy Policy</a>
-            <a href="#" className="text-gray-500 hover:text-white text-xs">Terms of Service</a>
+            <a href="#" className="text-gray-500 hover:text-white text-xs" data-testid="link-privacy">Privacy Policy</a>
+            <a href="#" className="text-gray-500 hover:text-white text-xs" data-testid="link-terms">Terms of Service</a>
           </div>
         </div>
       </div>
