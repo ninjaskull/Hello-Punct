@@ -15,7 +15,11 @@ import {
   Star,
   Zap,
   TrendingUp,
-  ChevronDown
+  ChevronDown,
+  Sparkles,
+  Gauge,
+  Shield,
+  Award
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -40,214 +44,197 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-950 to-gray-900 overflow-hidden pt-16 md:pt-20">
-        {/* Decorative background elements */}
+      {/* HERO SECTION - MODERN MINIMAL */}
+      <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-16 md:pt-20">
+        {/* Subtle background gradient */}
         <div className="absolute inset-0 z-0">
-          {/* Premium gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/60 to-black/85 z-10" />
-          
-          {/* Accent glows */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/8 rounded-full blur-3xl opacity-60" />
-          <div className="absolute bottom-20 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-40" />
-          
-          {/* Background image */}
-          <img 
-            src={heroImage} 
-            alt="Mechanic repairing tyre" 
-            className="w-full h-full object-cover opacity-35"
-          />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-black/3 rounded-full blur-3xl opacity-20" />
         </div>
 
-        {/* Premium vertical accent line */}
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-primary/50 to-transparent z-20" />
-
-        <div className="container relative z-20 px-4 md:px-6 text-center md:text-left max-w-5xl">
+        {/* Content */}
+        <div className="container relative z-20 px-4 md:px-6 text-center max-w-4xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full"
+            className="space-y-6 md:space-y-8"
           >
-            {/* Premium badge */}
+            {/* Badge */}
             <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="inline-block glass px-4 py-2 md:px-6 md:py-2.5 mb-6 md:mb-10 rounded-full border border-primary/30 backdrop-blur-md"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 bg-black/5 border border-black/10 rounded-full px-4 py-2 md:px-5 md:py-2.5 mx-auto"
             >
-              <span className="text-primary font-bold text-xs tracking-widest uppercase flex items-center gap-2">
-                <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse" />
-                One Call Service | Your Problems, Our Solutions
-              </span>
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-xs md:text-sm font-semibold text-black">⚡ One-Call Service Solution</span>
             </motion.div>
             
-            {/* Premium headline with enhanced typography */}
-            <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-display font-black text-white leading-tight mb-6 md:mb-10 tracking-tight">
-              Door-Step <br className="md:hidden"/>
-              <span className="block md:inline">Puncture</span>
-              <br/>
+            {/* Main Headline */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black leading-tight tracking-tight"
+            >
+              Professional Vehicle <br/>
               <span className="relative inline-block">
-                <span className="gradient-text text-3xl sm:text-4xl md:text-7xl lg:text-8xl">& Bike Servicing</span>
-                <div className="absolute -bottom-2 md:-bottom-4 left-0 w-24 md:w-32 h-1 md:h-1.5 bg-primary rounded-full" />
+                Care <span className="text-primary">Delivered Fast</span>
               </span>
-            </h1>
+            </motion.h1>
             
-            {/* Enhanced subheading */}
-            <p className="text-sm md:text-base lg:text-lg text-gray-200 mb-8 md:mb-12 max-w-2xl md:max-w-xl leading-relaxed font-light">
-              Professional car and bike puncture repair, tyre changes, and complete bike servicing delivered directly to your location. Fast. Reliable. Trusted by thousands.
-            </p>
+            {/* Subheading */}
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed"
+            >
+              Get professional puncture repairs, tyre changes, and bike servicing delivered straight to your location. Fast response times, certified technicians, and transparent pricing.
+            </motion.p>
             
-            {/* Premium CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 justify-center md:justify-start mb-12 md:mb-16">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="w-full sm:w-auto"
+            {/* CTA Buttons */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
+            >
+              <Button 
+                size="lg" 
+                className="bg-black text-white hover:bg-black/90 font-bold h-12 md:h-14 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                data-testid="button-book-hero"
               >
-                <Button size="lg" className="bg-gradient-to-r from-primary via-yellow-400 to-yellow-500 text-black hover:shadow-2xl hover:shadow-primary/60 font-bold h-11 sm:h-14 px-6 sm:px-10 text-xs sm:text-sm md:text-base rounded-xl uppercase tracking-wide transition-all duration-300 hover:-translate-y-1 border border-yellow-400/30 w-full" data-testid="button-book-hero">
-                  Book Service
-                </Button>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="w-full sm:w-auto"
+                Book Service Now
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-black text-black hover:bg-black/5 font-bold h-12 md:h-14 px-8 rounded-xl"
+                data-testid="button-view-services-hero"
               >
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-black hover:shadow-2xl font-bold h-11 sm:h-14 px-6 sm:px-10 text-xs sm:text-sm md:text-base rounded-xl uppercase tracking-wide transition-all duration-300 w-full" data-testid="button-view-services-hero">
-                  Services
-                </Button>
-              </motion.div>
-            </div>
+                View Services
+              </Button>
+            </motion.div>
 
-            {/* Premium trust indicators */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-2xl">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="flex flex-col items-center md:items-start space-y-1.5 md:space-y-2">
-                <div className="flex items-center gap-2 text-white">
-                  <Clock className="text-primary w-4 md:w-5 h-4 md:h-5" />
-                  <span className="font-bold text-xs md:text-sm lg:text-base">30 Min</span>
-                </div>
-                <span className="text-xs text-gray-400">Fast Arrival</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-col items-center md:items-start space-y-1.5 md:space-y-2">
-                <div className="flex items-center gap-2 text-white">
-                  <ShieldCheck className="text-primary w-4 md:w-5 h-4 md:h-5" />
-                  <span className="font-bold text-xs md:text-sm lg:text-base">100%</span>
-                </div>
-                <span className="text-xs text-gray-400">Guaranteed</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="flex flex-col items-center md:items-start space-y-1.5 md:space-y-2">
-                <div className="flex items-center gap-2 text-white">
-                  <Settings className="text-primary w-4 md:w-5 h-4 md:h-5" />
-                  <span className="font-bold text-xs md:text-sm lg:text-base">Expert</span>
-                </div>
-                <span className="text-xs text-gray-400">Certified Techs</span>
-              </motion.div>
-            </div>
+            {/* Trust indicators */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="grid grid-cols-3 gap-4 md:gap-8 pt-6 md:pt-8 max-w-2xl mx-auto"
+            >
+              {[
+                { icon: Clock, label: "30 Min", value: "Response" },
+                { icon: Star, label: "4.9/5", value: "Rating" },
+                { icon: Award, label: "200+", value: "Technicians" }
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div key={i} className="text-center">
+                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary mx-auto mb-2" />
+                    <p className="text-sm md:text-base font-bold">{item.label}</p>
+                    <p className="text-xs md:text-sm text-gray-600">{item.value}</p>
+                  </div>
+                );
+              })}
+            </motion.div>
           </motion.div>
         </div>
-
-        {/* Premium floating element */}
-        <motion.div
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute bottom-10 right-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 backdrop-blur-sm hidden lg:block z-20"
-        />
       </section>
 
-      {/* STATS SECTION */}
-      <section className="py-12 bg-black text-white border-b border-primary/20">
+      {/* STATS SECTION - MODERN MINIMAL */}
+      <section className="py-16 md:py-20 bg-black text-white">
         <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <motion.div {...fadeIn} className="text-center">
-              <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">15K+</div>
-              <p className="text-gray-400 font-medium">Happy Customers</p>
-            </motion.div>
-            <motion.div {...fadeIn} transition={{ delay: 0.1 }} className="text-center">
-              <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">98%</div>
-              <p className="text-gray-400 font-medium">Satisfaction Rate</p>
-            </motion.div>
-            <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="text-center">
-              <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">200+</div>
-              <p className="text-gray-400 font-medium">Expert Technicians</p>
-            </motion.div>
-            <motion.div {...fadeIn} transition={{ delay: 0.3 }} className="text-center">
-              <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">24/7</div>
-              <p className="text-gray-400 font-medium">Service Available</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS SECTION */}
-      <section className="py-16 bg-white">
-        <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3">How It Works</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
-            <p className="text-gray-600 text-sm md:text-base">Simple, fast, and hassle-free. Get professional service in just 4 easy steps.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-0">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
             {[
-              { step: 1, title: "Call or Book Online", desc: "Contact us via phone or our booking platform" },
-              { step: 2, title: "Get Instant Quote", desc: "Receive transparent pricing within minutes" },
-              { step: 3, title: "Technician Arrives", desc: "Expert arrives at your location on time" },
-              { step: 4, title: "Service & Payment", desc: "Professional service with flexible payment options" }
-            ].map((item, i) => (
-              <motion.div
+              { number: "15K+", label: "Happy Customers" },
+              { number: "98%", label: "Satisfaction Rate" },
+              { number: "200+", label: "Expert Team" },
+              { number: "24/7", label: "Always Available" }
+            ].map((stat, i) => (
+              <motion.div 
                 key={i}
                 {...fadeIn}
                 transition={{ delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center"
+                className="text-center"
               >
-                <div className="w-14 h-14 rounded-full bg-primary text-black flex items-center justify-center font-display font-bold text-xl mb-4 relative z-10">
-                  {item.step}
-                </div>
-                <h3 className="font-bold text-base md:text-lg mb-1 font-display">{item.title}</h3>
-                <p className="text-gray-600 text-xs md:text-sm">{item.desc}</p>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-7 left-[60%] w-[80%] h-1 bg-gradient-to-r from-primary to-transparent" />
-                )}
+                <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">{stat.number}</div>
+                <p className="text-sm md:text-base text-gray-400">{stat.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
-      <section id="services" className="py-16 bg-gray-50">
+      {/* HOW IT WORKS - MODERN MINIMAL */}
+      <section className="py-20 md:py-28 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3">Our Core Services</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
-            <p className="text-gray-600 text-sm md:text-base">Professional vehicle care delivered right to your doorstep. We handle everything from flat tyres to full engine diagnostics.</p>
+          <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+            <h2 className="text-3xl md:text-5xl font-display font-black mb-4">Simple & Straightforward</h2>
+            <p className="text-base md:text-lg text-gray-600">Get professional service in just 4 steps</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
-              { icon: Disc, title: "Door-Step Puncture", items: ["Car & Bike Support", "Tubeless & Tube Repair", "Emergency Response"] },
-              { icon: Wrench, title: "Tyre & Tube Change", items: ["Premium Brands", "Professional Fitting", "Wheel Balancing"] },
-              { icon: Bike, title: "Complete Bike Servicing", items: ["Engine Oil Change", "Brake & Clutch Check", "Foam Wash & Polish"] }
+              { step: 1, title: "Book Online", desc: "Call or use our app", icon: PhoneCall },
+              { step: 2, title: "Get Quote", desc: "Transparent pricing", icon: Gauge },
+              { step: 3, title: "Technician Arrives", desc: "At your location", icon: Wrench },
+              { step: 4, title: "Service Done", desc: "Pay & relax", icon: CheckCircle2 }
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={i}
+                  {...fadeIn}
+                  transition={{ delay: i * 0.1 }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 rounded-xl bg-primary text-black flex items-center justify-center mb-4 mx-auto font-display font-bold text-2xl">
+                    {item.step}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 font-display">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES - MODERN CARDS */}
+      <section id="services" className="py-20 md:py-28 bg-white">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+            <h2 className="text-3xl md:text-5xl font-display font-black mb-4">What We Offer</h2>
+            <p className="text-base md:text-lg text-gray-600">Everything you need for vehicle maintenance</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {[
+              { icon: Disc, title: "Puncture Repairs", desc: "Quick car & bike puncture fixes with quality repairs", items: ["Car & Bike", "Emergency", "Fast Service"] },
+              { icon: Wrench, title: "Tyre Services", desc: "Professional tyre changes and wheel balancing", items: ["Premium Brands", "Fitting", "Balancing"] },
+              { icon: Bike, title: "Bike Servicing", desc: "Complete maintenance for motorcycles", items: ["Oil Change", "Brake Check", "Polish"] }
             ].map((service, i) => {
-              const IconComponent = service.icon;
+              const Icon = service.icon;
               return (
                 <motion.div 
                   key={i}
                   {...fadeIn} 
                   transition={{ delay: i * 0.1 }}
-                  className="group bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-primary/40 transition-all duration-300 hover-lift"
+                  className="group bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl p-8 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-black to-gray-800 group-hover:from-primary group-hover:to-yellow-500 transition-all duration-300 flex items-center justify-center mb-4 md:mb-6 rounded-xl">
-                    <IconComponent className="w-6 h-6 text-primary group-hover:text-black transition-colors" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 group-hover:bg-primary flex items-center justify-center mb-4 transition-colors">
+                    <Icon className="w-7 h-7 text-primary group-hover:text-black transition-colors" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 font-display">{service.title}</h3>
-                  <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
+                  <h3 className="text-xl font-bold mb-2 font-display">{service.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{service.desc}</p>
+                  <ul className="space-y-2">
                     {service.items.map((item, j) => (
                       <li key={j} className="flex items-center gap-2 text-gray-600 text-sm">
-                        <CheckCircle2 className="w-4 h-4 text-primary" /> {item}
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -258,88 +245,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BIKE SERVICING DETAIL SECTION */}
-      <section className="py-16 md:py-24 bg-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-             <img src={bikeServiceImage} alt="Bike servicing background" className="w-full h-full object-cover" />
-        </div>
-        
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+      {/* BIKE SERVICING - MODERN CTA */}
+      <section className="py-20 md:py-28 bg-black text-white">
+        <div className="container px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <motion.div {...fadeIn}>
-              <div className="inline-block bg-primary text-black font-bold text-xs px-3 py-1 mb-4 md:mb-6 uppercase tracking-wider">Premium Care</div>
-              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 md:mb-6">Comprehensive <br/><span className="text-primary">Bike Health Check</span></h2>
-              <p className="text-gray-400 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
-                We don't just fix problems; we prevent them. Our 25-point inspection covers every vital component of your two-wheeler to ensure a smooth, safe ride.
+              <h2 className="text-4xl md:text-5xl font-display font-black mb-6">Complete Bike Health</h2>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                Our comprehensive inspection covers all vital components. Fast diagnostics. Quality repairs. Guaranteed satisfaction.
               </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 md:gap-y-4 gap-x-6 md:gap-x-8">
-                {[
-                  "Full Bike Inspection & Diagnosis",
-                  "Engine Oil Change (Branded)",
-                  "Brake & Clutch Adjustment",
-                  "Filter Cleaning",
-                  "Spark Plug Check",
-                  "Carburetor Tuning",
-                  "Battery Health Check",
-                  "Chain Lubrication & Adjustment"
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 md:gap-3">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full shrink-0" />
-                    <span className="font-medium text-xs md:text-base">{item}</span>
+              <div className="space-y-3 mb-8">
+                {["Full Inspection", "Branded Oil", "Brake Check", "Polish & Wash"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-medium">{item}</span>
                   </div>
                 ))}
               </div>
-              
-              <Button className="mt-8 md:mt-10 bg-primary text-black hover:bg-white hover:text-black font-bold rounded-lg h-11 md:h-12 px-6 md:px-8 uppercase tracking-wide text-sm md:text-base w-full sm:w-auto" data-testid="button-book-inspection">
-                Book Inspection
+              <Button className="bg-primary text-black hover:bg-primary/90 font-bold h-12 px-8 rounded-xl" data-testid="button-book-inspection">
+                Book Service
               </Button>
             </motion.div>
-            
             <motion.div {...fadeIn} transition={{ delay: 0.2 }} className="relative">
-              <div className="aspect-square relative group">
-                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-                 <div className="absolute inset-0 bg-gray-900 overflow-hidden rounded-3xl border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300">
-                    <img src={bikeServiceImage} alt="Mechanic working" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-                 </div>
-                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-primary to-yellow-500 rounded-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="aspect-square overflow-hidden rounded-2xl border-2 border-primary/30">
+                <img src={bikeServiceImage} alt="Bike servicing" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* WHY CHOOSE US SECTION */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* WHY CHOOSE - MODERN ICONS */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="container px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-display font-bold text-black mb-3 md:mb-4">Why Choose Hello Puncture?</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-4" />
-            <p className="text-gray-600 text-sm md:text-base">What sets us apart from the competition</p>
+          <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+            <h2 className="text-3xl md:text-5xl font-display font-black mb-4">Why We Stand Out</h2>
+            <p className="text-base md:text-lg text-gray-600">Trusted by thousands for quality and reliability</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Zap, title: "Lightning Fast", desc: "30-minute average response time across the city" },
-              { icon: TrendingUp, title: "Certified Technicians", desc: "All mechanics are trained and government verified" },
-              { icon: MapPin, title: "Wider Coverage", desc: "Serving all major areas and neighborhoods" },
-              { icon: ShieldCheck, title: "Warranty on Work", desc: "100% warranty on all repairs and services" },
-              { icon: Star, title: "Premium Quality", desc: "Only original spare parts and branded oils" },
-              { icon: Clock, title: "Available 24/7", desc: "Round-the-clock service even on holidays" }
-            ].map((feature, i) => {
-              const IconComponent = feature.icon;
+              { icon: Zap, title: "Fast Response", desc: "30-minute arrival time" },
+              { icon: Award, title: "Certified Team", desc: "Government verified" },
+              { icon: MapPin, title: "Wide Coverage", desc: "All major areas" },
+              { icon: Shield, title: "Full Warranty", desc: "100% guaranteed" },
+              { icon: Star, title: "Quality Parts", desc: "Original only" },
+              { icon: Clock, title: "24/7 Available", desc: "No holidays" }
+            ].map((item, i) => {
+              const Icon = item.icon;
               return (
                 <motion.div
                   key={i}
                   {...fadeIn}
                   transition={{ delay: i * 0.08 }}
-                  className="group p-6 md:p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200 hover:border-primary/40 hover:shadow-2xl transition-all duration-300 hover-lift"
+                  className="text-center p-6 rounded-2xl border border-gray-100 hover:border-primary/40 hover:shadow-lg transition-all"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 group-hover:from-primary group-hover:to-yellow-500 group-hover:text-white flex items-center justify-center mb-4 transition-all duration-300">
-                    <IconComponent className="w-6 h-6 text-primary group-hover:text-black transition-colors" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 font-display">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+                  <Icon className="w-10 h-10 text-primary mx-auto mb-4" />
+                  <h3 className="font-bold text-lg mb-1 font-display">{item.title}</h3>
+                  <p className="text-gray-600 text-sm">{item.desc}</p>
                 </motion.div>
               );
             })}
