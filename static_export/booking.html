@@ -10,61 +10,61 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-dark">
-    <nav class="navbar bg-transparent">
+<body style="background: var(--dark);">
+    <nav class="navbar" style="background: transparent;">
         <div class="container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">⚡</span>
+            <a href="index.html" class="logo" style="color: white;">
+                <div class="logo-icon">⚡</div>
                 <span class="logo-text">Hello Puncture</span>
             </a>
             <div class="nav-links">
-                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+                <a href="index.html" class="btn btn-outline" style="border-color: white; color: white;">Back to Home</a>
             </div>
         </div>
     </nav>
 
-    <main class="booking-page">
-        <div class="container max-w-sm">
-            <div class="booking-card">
-                <h1>Book Your Service</h1>
-                <p>Fill in your details below and we'll confirm your booking within minutes</p>
+    <main class="booking-page" style="padding: 120px 0 80px; min-height: 100vh; display: flex; align-items: center;">
+        <div class="container" style="max-width: 600px; margin: 0 auto;">
+            <div class="booking-card" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 60px; border-radius: 32px; color: white;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 16px;">Book Your Service</h1>
+                <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 40px;">Fill in your details below and we'll confirm your booking within minutes</p>
                 
                 <form id="bookingForm" class="form">
-                    <div class="form-group">
-                        <label><i data-lucide="user"></i> Your Name</label>
-                        <input type="text" name="name" placeholder="John Doe" required>
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;"><i data-lucide="user"></i> Your Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: white;">
                     </div>
                     
-                    <div class="form-group">
-                        <label><i data-lucide="phone"></i> Phone Number</label>
-                        <input type="tel" name="phone" placeholder="+91 98765 43210" required>
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;"><i data-lucide="phone"></i> Phone Number</label>
+                        <input type="tel" name="phone" placeholder="+91 98765 43210" required style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: white;">
                     </div>
 
-                    <div class="form-group">
-                        <label><i data-lucide="map-pin"></i> Your Location</label>
-                        <div class="input-with-action">
-                            <input type="text" id="locationInput" name="location" placeholder="Enter address" required>
-                            <button type="button" id="getLocationBtn" class="btn btn-primary btn-sm">
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;"><i data-lucide="map-pin"></i> Your Location</label>
+                        <div class="input-with-action" style="display: flex; gap: 10px;">
+                            <input type="text" id="locationInput" name="location" placeholder="Enter address" required style="flex: 1; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: white;">
+                            <button type="button" id="getLocationBtn" class="btn btn-primary" style="padding: 0 16px;">
                                 <i data-lucide="navigation"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label><i data-lucide="wrench"></i> Service Type</label>
-                        <select name="serviceType">
-                            <option value="puncture">Puncture Repair</option>
-                            <option value="tyre">Tyre Change</option>
-                            <option value="servicing">Bike Servicing</option>
+                    <div class="form-group" style="margin-bottom: 40px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;"><i data-lucide="wrench"></i> Service Type</label>
+                        <select name="serviceType" style="width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: white;">
+                            <option value="puncture" style="background: var(--dark);">Puncture Repair</option>
+                            <option value="tyre" style="background: var(--dark);">Tyre Change</option>
+                            <option value="servicing" style="background: var(--dark);">Bike Servicing</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Confirm Booking</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" style="width: 100%; padding: 16px; font-size: 1.1rem; font-weight: 800;">Confirm Booking</button>
                 </form>
 
-                <div id="successMessage" class="success-message" style="display: none;">
-                    <div class="success-icon">✓</div>
-                    <h2>Booking Confirmed!</h2>
+                <div id="successMessage" class="success-message" style="display: none; text-align: center; padding: 40px 0;">
+                    <div class="success-icon" style="width: 64px; height: 64px; background: var(--primary); color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 24px;">✓</div>
+                    <h2 style="font-size: 2rem; margin-bottom: 12px;">Booking Confirmed!</h2>
                     <p>Our team will contact you shortly.</p>
                 </div>
             </div>
@@ -74,6 +74,36 @@
     <script src="js/main.js"></script>
     <script>
         lucide.createIcons();
+        
+        const bookingForm = document.getElementById('bookingForm');
+        const successMessage = document.getElementById('successMessage');
+        const getLocationBtn = document.getElementById('getLocationBtn');
+        const locationInput = document.getElementById('locationInput');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            bookingForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 3000);
+        });
+
+        getLocationBtn.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                getLocationBtn.innerHTML = '<i data-lucide="loader" class="animate-spin"></i>';
+                lucide.createIcons();
+                navigator.geolocation.getCurrentPosition((pos) => {
+                    locationInput.value = `${pos.coords.latitude.toFixed(6)}, ${pos.coords.longitude.toFixed(6)}`;
+                    getLocationBtn.innerHTML = '<i data-lucide="check"></i>';
+                    lucide.createIcons();
+                }, () => {
+                    alert('Location access denied');
+                    getLocationBtn.innerHTML = '<i data-lucide="navigation"></i>';
+                    lucide.createIcons();
+                });
+            }
+        });
     </script>
 </body>
 </html>
