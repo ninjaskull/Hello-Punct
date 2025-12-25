@@ -1,9 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Calendar, MapPin, Phone, User, Wrench } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Phone, User, Wrench, Navigation, Check, Loader } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 
 export default function Booking() {
@@ -11,6 +11,8 @@ export default function Booking() {
     name: "",
     phone: "",
     location: "",
+    latitude: null as number | null,
+    longitude: null as number | null,
     serviceType: "puncture",
     date: "",
     time: "",
@@ -18,6 +20,9 @@ export default function Booking() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [locationLoading, setLocationLoading] = useState(false);
+  const [locationError, setLocationError] = useState("");
+  const [locationSuccess, setLocationSuccess] = useState(false);
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -33,6 +38,68 @@ export default function Booking() {
     }));
   };
 
+  const handleGetLocation = () => {
+    setLocationLoading(true);
+    setLocationError("");
+    setLocationSuccess(false);
+
+    if (!navigator.geolocation) {
+      setLocationError("Geolocation is not supported by your browser");
+      setLocationLoading(false);
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        
+        setFormData(prev => ({
+          ...prev,
+          latitude,
+          longitude,
+          location: `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`
+        }));
+        
+        setLocationSuccess(true);
+        setLocationLoading(false);
+        setLocationError("");
+
+        // Try to get human-readable address using reverse geocoding
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+        )
+          .then(res => res.json())
+          .then(data => {
+            if (data.address) {
+              const address = data.address.road ? 
+                `${data.address.road}, ${data.address.city || data.address.town || ''}`
+                : `${data.address.city || data.address.town || 'Location'}`;
+              setFormData(prev => ({
+                ...prev,
+                location: address
+              }));
+            }
+          })
+          .catch(() => {
+            // Keep the coordinates if reverse geocoding fails
+          });
+      },
+      (error) => {
+        setLocationLoading(false);
+        if (error.code === error.PERMISSION_DENIED) {
+          setLocationError("Please enable location permission to share your location");
+        } else {
+          setLocationError("Unable to get your location. Please try again.");
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
+      }
+    );
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
@@ -42,11 +109,14 @@ export default function Booking() {
         name: "",
         phone: "",
         location: "",
+        latitude: null,
+        longitude: null,
         serviceType: "puncture",
         date: "",
         time: "",
         description: ""
       });
+      setLocationSuccess(false);
     }, 3000);
   };
 
@@ -161,7 +231,7 @@ export default function Booking() {
                   />
                 </motion.div>
 
-                {/* Location Field */}
+                {/* Location Field with Smart Sharing */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -171,15 +241,70 @@ export default function Booking() {
                     <MapPin className="w-4 h-4 text-primary" />
                     Your Location
                   </label>
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Enter your address"
-                    required
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
-                  />
+                  <div className="flex gap-2 mb-3">
+                    <input
+                      type="text"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      placeholder="Enter address or tap to share location"
+                      required
+                      className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    />
+                    <Button
+                      type="button"
+                      onClick={handleGetLocation}
+                      disabled={locationLoading}
+                      className="px-4 py-3 rounded-xl bg-primary/80 hover:bg-primary text-black font-semibold flex items-center gap-2 transition-all whitespace-nowrap"
+                      data-testid="button-share-location"
+                    >
+                      {locationLoading ? (
+                        <>
+                          <Loader className="w-4 h-4 animate-spin" />
+                          <span className="hidden sm:inline">Getting...</span>
+                        </>
+                      ) : locationSuccess ? (
+                        <>
+                          <Check className="w-4 h-4" />
+                          <span className="hidden sm:inline">Shared</span>
+                        </>
+                      ) : (
+                        <>
+                          <Navigation className="w-4 h-4" />
+                          <span className="hidden sm:inline">Share Location</span>
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                  
+                  {/* Error Message */}
+                  {locationError && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="px-3 py-2 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm mb-3"
+                    >
+                      {locationError}
+                    </motion.div>
+                  )}
+                  
+                  {/* Coordinates Display */}
+                  {formData.latitude && formData.longitude && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="px-3 py-2 bg-primary/20 border border-primary/50 rounded-lg text-white text-xs space-y-1"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Check className="w-3 h-3 text-primary" />
+                        <span className="font-semibold">Location Captured</span>
+                      </div>
+                      <div className="text-white/80 font-mono">
+                        <div>Lat: {formData.latitude.toFixed(6)}</div>
+                        <div>Lng: {formData.longitude.toFixed(6)}</div>
+                      </div>
+                    </motion.div>
+                  )}
                 </motion.div>
 
                 {/* Service Type */}
