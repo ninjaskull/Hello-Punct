@@ -74,17 +74,6 @@ export default function Navbar() {
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center justify-between h-14">
-            <Link href="/" data-testid="link-home" className="flex-shrink-0">
-              <Logo variant="dark" className="h-8 w-auto object-contain" />
-            </Link>
-
-            <Button
-              className="bg-primary text-black hover:bg-primary/90 font-bold rounded-lg text-sm h-9 px-4 transition-all"
-              data-testid="button-mobile-book-quick"
-            >
-              Book
-            </Button>
-
             <Button
               variant="ghost"
               size="icon"
@@ -97,6 +86,17 @@ export default function Navbar() {
               ) : (
                 <Menu className="w-5 h-5" />
               )}
+            </Button>
+
+            <Link href="/" data-testid="link-home" className="flex-shrink-0 absolute left-1/2 transform -translate-x-1/2">
+              <Logo variant="dark" className="h-8 w-auto object-contain" />
+            </Link>
+
+            <Button
+              className="bg-primary text-black hover:bg-primary/90 font-bold rounded-lg text-sm h-9 px-4 transition-all"
+              data-testid="button-mobile-book-quick"
+            >
+              Book
             </Button>
           </div>
         </div>
