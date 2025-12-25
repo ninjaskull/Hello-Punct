@@ -29,63 +29,66 @@ export default function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled 
-            ? "bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm py-3" 
-            : "bg-white/50 backdrop-blur-sm py-5"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-gray-100"
         )}
       >
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <Link href="/" data-testid="link-home" className="flex-shrink-0">
-            <Logo variant="dark" className="h-10 md:h-12 w-auto object-contain" />
-          </Link>
-
+        <div className="container mx-auto px-4 md:px-6">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {navItems.map((item) => (
-              <a
-                key={item.testId}
-                href={item.href}
-                data-testid={item.testId}
-                className="text-sm font-medium text-gray-700 hover:text-black transition-colors relative group"
+          <div className="hidden md:flex items-center justify-between h-16">
+            <Link href="/" data-testid="link-home" className="flex-shrink-0">
+              <Logo variant="dark" className="h-10 w-auto object-contain" />
+            </Link>
+
+            <div className="flex items-center gap-8 lg:gap-12">
+              {navItems.map((item) => (
+                <a
+                  key={item.testId}
+                  href={item.href}
+                  data-testid={item.testId}
+                  className="text-sm font-medium text-gray-700 hover:text-black transition-colors relative group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+                </a>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Button 
+                variant="ghost"
+                className="hidden lg:inline-flex text-sm font-medium text-gray-700 hover:text-black gap-2 h-9"
+                data-testid="button-call-now"
               >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
+                <Phone className="w-4 h-4" />
+                Call Now
+              </Button>
+              <Button 
+                className="bg-black text-white hover:bg-black/90 font-semibold rounded-lg text-sm h-10 px-5 inline-flex gap-2 transition-all duration-300"
+                data-testid="button-book-service"
+              >
+                Book Now
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <Button 
-              variant="ghost"
-              className="hidden lg:inline-flex text-sm font-medium text-gray-700 hover:text-black gap-2 h-9"
-              data-testid="button-call-now"
-            >
-              <Phone className="w-4 h-4" />
-              Call Now
-            </Button>
-            <Button 
-              className="bg-black text-white hover:bg-black/90 font-semibold rounded-lg text-sm h-10 md:h-11 px-5 md:px-6 hidden md:inline-flex gap-2 transition-all duration-300"
-              data-testid="button-book-service"
-            >
-              Book Now
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+          {/* Mobile Navigation */}
+          <div className="md:hidden flex items-center justify-between h-14">
+            <Link href="/" data-testid="link-home" className="flex-shrink-0">
+              <Logo variant="dark" className="h-8 w-auto object-contain" />
+            </Link>
 
-            {/* Mobile CTA Button */}
             <Button
-              className="md:hidden bg-primary text-black hover:bg-primary/90 font-semibold rounded-lg text-xs h-9 px-3 transition-all"
+              className="bg-primary text-black hover:bg-primary/90 font-bold rounded-lg text-sm h-9 px-4 transition-all"
               data-testid="button-mobile-book-quick"
             >
               Book
             </Button>
 
-            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-black hover:bg-black/5 h-10 w-10"
+              className="text-black hover:bg-black/5 h-9 w-9"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               data-testid="button-mobile-menu"
             >
